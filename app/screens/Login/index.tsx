@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Text, Button } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components/native'
 
 import * as loginActions from 'app/store/actions/loginActions';
 import styles from './styles';
@@ -12,6 +13,10 @@ interface IState {
   loginReducer: ILoginState;
 }
 
+const StyledText = styled.Text`
+  color: palegreen;
+`
+
 const Login: React.FC = () => {
   const id = useSelector((state: IState) => state.loginReducer.id);
   const dispatch = useDispatch();
@@ -20,6 +25,7 @@ const Login: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.container}>
+      <StyledText>Hello World!</StyledText>
         <Text style={styles.login}>Login Status : {id}</Text>
         <Button icon="login" mode="outlined" onPress={onLogin}>
           Login
